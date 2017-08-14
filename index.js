@@ -4,6 +4,8 @@ const grunt = require('grunt');
 module.exports = source => {
   this.cacheable && this.cacheable();
 
+  console.log(this);
+
   let sourceFileName = loaderUtils.getRemainingRequest(this);
 
   try {
