@@ -1,15 +1,10 @@
-const loaderUtils = require('loader-utils');
 const grunt = require('grunt');
 
-module.exports = source => {
+module.exports = function(source) {
   this.cacheable && this.cacheable();
 
-  console.log(this);
-
-  let sourceFileName = loaderUtils.getRemainingRequest(this);
-
   try {
-    let lang = /([^/]{2})\.yml/.exec(sourceFileName)[1];
+    let lang = /([^/]{2})\.yml/.exec(this.resourcePath)[1];
     let dest = `./public/${lang}.js`;
 
     let momentLocale;
@@ -23,7 +18,7 @@ module.exports = source => {
 
     let content = grunt.template.process(
       grunt.file.read('./public/i18n-lang.js.tpl', {encoding: 'utf-8'}),
-      {data: {translations: json, moment_locale: momentLocale}}
+      {data: {translations: source, moment_locale: momentLocale}}
     );
 
     return content;
