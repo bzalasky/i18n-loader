@@ -14,13 +14,15 @@ module.exports = function(source) {
         `./node_modules/moment/locale/${lang}.js`,
         {encoding: 'utf-8'}
       );
+
+      momentLocale = momentLocale.replace('../moment', 'moment');
     }
 
     let content = grunt.template.process(
       grunt.file.read('./public/i18n-lang.js.tpl', {encoding: 'utf-8'}),
       {data: {translations: source, moment_locale: momentLocale}}
     );
-    console.log(content);
+
     return content;
 
   } catch(err) {
