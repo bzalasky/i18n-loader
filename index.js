@@ -20,7 +20,7 @@ module.exports = function(source) {
       grunt.file.read('./public/i18n-lang.js.tpl', {encoding: 'utf-8'}),
       {data: {translations: source, moment_locale: momentLocale}}
     );
-
+    console.log(content);
     return content;
 
   } catch(err) {
