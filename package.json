@@ -10,6 +10,7 @@
   "license": "MIT",
   "dependencies": {
     "grunt": "^1.0.1",
-    "loader-utils": "^1.1.0"
+    "loader-utils": "^1.1.0",
+    "moment": "^2.18.1"
   }
 }
