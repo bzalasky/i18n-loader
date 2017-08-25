@@ -19,7 +19,7 @@ module.exports = function(source) {
     }
 
     let content = grunt.template.process(
-      grunt.file.read('./public/i18n-lang.js.tpl', {encoding: 'utf-8'}),
+      grunt.file.read('./app/static/i18n-lang.js.tpl', {encoding: 'utf-8'}),
       {data: {translations: source, moment_locale: momentLocale}}
     );
 
