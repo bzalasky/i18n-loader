@@ -4,7 +4,7 @@ module.exports = function(source) {
   this.cacheable && this.cacheable();
 
   try {
-    let lang = /([^/]{2})\.yml/.exec(this.resourcePath)[1];
+    let lang = /^.*\/(.*)\.yml$/.exec(this.resourcePath)[1];
     let dest = `./public/${lang}.js`;
 
     let momentLocale;
